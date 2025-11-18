@@ -7,5 +7,5 @@ export class Alerta{
     fechaAlerta:Date=new Date()
     horaAlerta:string = new Date().toLocaleTimeString()
     vistoAlerta:boolean=false
-    user:Users=new Users
+    user:Users=new Users()
 }

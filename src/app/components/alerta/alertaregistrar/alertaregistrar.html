@@ -1,1 +1,81 @@
-<p>alertaregistrar works!</p>
+
+    <div class="container">
+        <h1>Registro de Alertas</h1>
+        
+        <form id="alertaForm">
+            <!-- Campo Código -->
+            <div class="form-group">
+                <mat-label for="codigo">Código</mat-label>
+                <input type="text" id="codigo" name="codigo" matInput>
+            </div>
+            
+            <!-- Campo Mensaje -->
+            <div class="form-group">
+                <mat-label for="mensaje">Mensaje *</mat-label>
+                <input type="text" id="mensaje" name="mensaje" matInput required>
+                <div class="error" id="mensajeError"></div>
+            </div>
+            
+            <!-- Campo Tipo de Alerta (Radio Buttons) -->
+            <div class="form-group">
+                <mat-label>Tipo de Alerta *</mat-label>
+                <div class="radio-group">
+                    <mat-radio-group>
+                        <mat-radio-button id="tipoUrgente" name="tipo" value="Urgente" required>
+                            Urgente
+                        </mat-radio-button>
+                        <mat-radio-button id="tipoInformativa" name="tipo" value="Informativa">
+                            Informativa
+                        </mat-radio-button>
+                        <mat-radio-button id="tipoRecordatorio" name="tipo" value="Recordatorio">
+                            Recordatorio
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div class="error" id="tipoError"></div>
+            </div>
+            
+            <!-- Campos Fecha y Hora en fila -->
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <mat-label for="fecha">Fecha *</mat-label>
+                        <input type="date" id="fecha" name="fecha" matInput required>
+                        <div class="error" id="fechaError"></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <mat-label for="hora">Hora *</mat-label>
+                        <input type="time" id="hora" name="hora" matInput required>
+                        <div class="error" id="horaError"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Checkbox Visto -->
+            <div class="form-group">
+                 <mat-radio-group aria-label="Select an option" formControlName="Visto">
+                <mat-radio-button [value]="true">Si</mat-radio-button>
+                <mat-radio-button [value]="false">No</mat-radio-button>
+        </mat-radio-group>
+            </div>
+            
+            <!-- Campo ID de Usuario -->
+            <div class="form-group">
+                <mat-label for="fk">ID de Usuario *</mat-label>
+                <input type="number" id="fk" name="fk" matInput required>
+                <div class="error" id="fkError"></div>
+            </div>
+            
+            <!-- Botones de acción -->
+            <div class="button-group">
+                <button type="button" class="btn-secondary" mat-button id="cancelarBtn">
+                    Cancelar
+                </button>
+                <button type="submit" class="btn-primary" mat-raised-button>
+                    Aceptar
+                </button>
+            </div>
+        </form>
+    </div>

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Alertalistar } from './alertalistar/alertalistar';
+import { ActivatedRoute, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-alerta',
-  imports: [RouterOutlet,Alertalistar],
+  imports: [Alertalistar,RouterOutlet],
   templateUrl: './alerta.html',
   styleUrl: './alerta.css',
 })

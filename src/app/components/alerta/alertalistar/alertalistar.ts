@@ -5,10 +5,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { Alerta } from '../../../models/Alerta';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-alertalistar',
-  imports: [MatTableModule, MatButtonModule, MatIconModule, RouterLink],
+  imports: [MatTableModule, MatButtonModule, MatIconModule, RouterLink,CommonModule],
   templateUrl: './alertalistar.html',
   styleUrl: './alertalistar.css',
 })

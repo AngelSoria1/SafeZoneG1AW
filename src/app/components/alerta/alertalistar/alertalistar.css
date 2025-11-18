@@ -1,0 +1,289 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Título */
+h2 {
+    color: #333;
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+}
+
+/* Tabla */
+.mat-elevation-z8 {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Cabecera de la tabla */
+mat-header-cell {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    font-weight: 600 !important;
+    font-size: 14px;
+    padding: 16px 12px !important;
+    border-bottom: none !important;
+}
+
+/* Celdas */
+mat-cell {
+    padding: 12px !important;
+    font-size: 14px;
+    color: #555;
+    border-bottom: 1px solid #f0f0f0 !important;
+}
+
+/* Filas alternas */
+mat-row:nth-child(even) {
+    background-color: #fafafa;
+}
+
+mat-row:hover {
+    background-color: #f5f5f5;
+    transition: background-color 0.2s ease;
+}
+
+/* Estados de alerta */
+.visto {
+    color: #4caf50;
+    font-weight: 600;
+    padding: 4px 8px;
+    background: #e8f5e8;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+.no-visto {
+    color: #f44336;
+    font-weight: 600;
+    padding: 4px 8px;
+    background: #ffebee;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+/* Botones de acción */
+mat-button {
+    min-width: auto !important;
+    padding: 8px !important;
+    border-radius: 50% !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Botón editar */
+mat-button:first-child {
+    background: #2196f3 !important;
+    color: white !important;
+    margin-right: 8px;
+}
+
+mat-button:first-child:hover {
+    background: #1976d2 !important;
+    transform: scale(1.1);
+}
+
+/* Botón eliminar */
+mat-button:last-child {
+    background: #f44336 !important;
+    color: white !important;
+}
+
+mat-button:last-child:hover {
+    background: #d32f2f !important;
+    transform: scale(1.1);
+}
+
+/* Iconos */
+mat-icon {
+    font-size: 18px !important;
+    width: 18px !important;
+    height: 18px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Cabecera de acciones */
+mat-header-cell:last-child,
+mat-header-cell:nth-last-child(2) {
+    text-align: center !important;
+}
+
+/* Celdas de acciones */
+mat-cell:last-child,
+mat-cell:nth-last-child(2) {
+    text-align: center !important;
+}
+
+/* Paginación (si se agrega posteriormente) */
+.mat-paginator {
+    background: #fafafa;
+    border-radius: 0 0 8px 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+        margin: 10px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    mat-header-cell,
+    mat-cell {
+        padding: 8px 6px !important;
+        font-size: 12px;
+    }
+
+    .displayed-columns {
+        font-size: 12px;
+    }
+
+    /* Ocultar columnas menos importantes en móvil */
+    .mat-column-c4,
+    .mat-column-c5,
+    .mat-column-c7 {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 20px;
+    }
+
+    /* Ocultar más columnas en pantallas muy pequeñas */
+    .mat-column-c3,
+    .mat-column-c6 {
+        display: none;
+    }
+
+    mat-button {
+        padding: 6px !important;
+    }
+
+    mat-icon {
+        font-size: 16px !important;
+        width: 16px !important;
+        height: 16px !important;
+    }
+}
+
+/* Estados vacíos */
+.no-data {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Loading state */
+.loading {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+/* Efectos de focus para accesibilidad */
+mat-button:focus-visible {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Mejoras visuales para la tabla */
+mat-table {
+    border-radius: 8px;
+}
+
+mat-header-row {
+    border-radius: 8px 8px 0 0;
+}
+
+/* Ajustes específicos para columnas */
+.mat-column-c1 { /* ID */
+    width: 80px;
+    text-align: center;
+}
+
+.mat-column-c2 { /* Mensaje */
+    min-width: 200px;
+}
+
+.mat-column-c3 { /* Tipo */
+    width: 120px;
+}
+
+.mat-column-c4 { /* Fecha */
+    width: 100px;
+}
+
+.mat-column-c5 { /* Hora */
+    width: 80px;
+}
+
+.mat-column-c6 { /* Estado */
+    width: 100px;
+    text-align: center;
+}
+
+.mat-column-c7 { /* Usuario */
+    width: 80px;
+    text-align: center;
+}
+
+.mat-column-c8, /* Acciones */
+.mat-column-c9 {
+    width: 60px;
+    text-align: center;
+}

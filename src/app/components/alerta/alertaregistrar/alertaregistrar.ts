@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -30,9 +30,9 @@ import { UsersService } from '../../../services/users-service';
     providers: [provideNativeDateAdapter()],
   styleUrl: './alertaregistrar.css',
 })
-export class Alertaregistrar {
+export class Alertaregistrar implements OnInit {
   form: FormGroup = new FormGroup({});
-  ar: Alerta = new Alerta();
+  al: Alerta = new Alerta();
   listaAlerta: Alerta[] = [];
   edicion: boolean = false;
   id: number = 0;
@@ -64,20 +64,22 @@ export class Alertaregistrar {
   }
   aceptar(): void {
     if (this.form.valid) {
-      this.ar.idAlerta=this.form.value.codigo
-      this.ar.mensajeAlerta = this.form.value.mensaje;
-      this.ar.tipoAlerta = this.form.value.tipo;
-      this.ar.fechaAlerta = this.form.value.fecha;
-      this.ar.horaAlerta = this.form.value.hora;
-      this.ar.vistoAlerta = this.form.value.visto;
+      this.al.idAlerta=this.form.value.codigo
+      this.al.mensajeAlerta = this.form.value.mensaje;
+      this.al.tipoAlerta = this.form.value.tipo;
+      this.al.fechaAlerta = this.form.value.fecha;
+      this.al.horaAlerta = this.form.value.hora;
+      this.al.vistoAlerta = this.form.value.visto;
+      this.al.user.id=this.form.value.fk
+
       if(this.edicion){
-        this.aS.update(this.ar).subscribe((data) => {
+        this.aS.update(this.al).subscribe((data) => {
           this.aS.list().subscribe((data) => {
             this.aS.setList(data);
           });
         });
       }else{
-        this.aS.insert(this.ar).subscribe((data) => {
+        this.aS.insert(this.al).subscribe((data) => {
           this.aS.list().subscribe((data) => {
             this.aS.setList(data);
           });
@@ -97,6 +99,7 @@ export class Alertaregistrar {
           fecha: new FormControl(data.fechaAlerta),
           hora: new FormControl(data.horaAlerta),
           visto: new FormControl(data.vistoAlerta),
+          fk: new FormControl(data.user.id)
         });
       });
     }
