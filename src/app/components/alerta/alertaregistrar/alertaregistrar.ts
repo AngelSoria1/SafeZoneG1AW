@@ -15,6 +15,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
+import { UsersService } from '../../../services/users-service';
 
 
 @Component({
@@ -32,7 +33,7 @@ import { MatButtonModule } from '@angular/material/button';
 export class Alertaregistrar {
   form: FormGroup = new FormGroup({});
   ar: Alerta = new Alerta();
-
+  listaAlerta: Alerta[] = [];
   edicion: boolean = false;
   id: number = 0;
 
@@ -40,7 +41,8 @@ export class Alertaregistrar {
     private aS: AlertaService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private uS: UsersService
   ) {}
 
   ngOnInit(): void {
@@ -52,11 +54,12 @@ export class Alertaregistrar {
 
     this.form = this.formBuilder.group({
       codigo:[''],
-      nombre: ['', Validators.required],
-      responsable: ['', Validators.required],
-      estado: [false, Validators.required],
+      mensaje: ['', Validators.required],
+      tipo: ['', Validators.required],
       fecha: ['', Validators.required],
-      presupuesto: ['', Validators.required],
+      hora: ['', Validators.required],
+      visto: [false, Validators.required],
+      fk:['',Validators.required]
     });
   }
   aceptar(): void {
